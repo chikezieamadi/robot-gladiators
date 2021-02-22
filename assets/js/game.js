@@ -1,18 +1,58 @@
 var playerName = window.prompt("What is your robot's name?");
-// console.log(playerName);
-// console.log("This is a string, good for leaving yourself a message");
-// console.log(10 + 10);
-// console.log("Our robot's name is " + playerName);
+var playerHealth = 100;
+var playerAttack = 10;
+console.log(playerName, playerAttack, playerHealth);
 
-var playerName = "Tony the Robot";
-console.log("Tony the robot " + "is ready for battle!");
-console.log(playerName + " is ready for battle!");
-console.log("Your robot " + playerName + ", has won!");
+var enemyName = "Roborto";
+var enemyHealth = 50;
+var enemyAttack = 12;
 
-// this creates a function named "fight"
 
-function fight() {
-    window.alert("The fight has begun");
+var fight = function() {
+    window.alert("Welcome to Robot Gladiators!");
+var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle?  Enter 'FIGHT' or 'SKIP' to choose. ");
+console.log(promptFight)
+
+if (promptFight === "fight" || promptFight === "FIGHT"){
+    console.log(playerName + " attacked " + enemyName + " . " + enemyName + " now has " + enemyHealth + " health remaining. ")
+}
+//check enemy's health
+if (enemyHealth <= 0) {
+    window.alert(enemyName + " has died!");
+}
+else {
+    window.alert(enemyName + " still has " + enemyHealth + " health left.");
 }
 
-//fight();
+//remove player's health by subt ...
+
+playerHealth = playerHealth - enemyAttack;
+console.log(enemyName + " attached " + playerName + "." + playerName + " now has " + playerHealth + " health remaining.")
+
+//check player's health
+if (playerHealth <= 0) {
+    window.alert(playerName + " has died! ");
+}
+else {
+   window.alert(playerName + " still has " + playerHealth + " health left. ");
+}
+
+//if player choses to skip
+
+else if (promptFight === "skip" || promptFight === "SKIP"){
+    window.alert(playerName + " has chosen to skip the fight!");
+}
+else {
+    window.alert("You need to choose a valid option. Try again!");
+}
+
+    // enemyHealth = enemyHealth - playerAttack;
+    // console.log(playerName + " attached " + enemyName + "." + enemyName + " now has " + enemyHealth + " health remaining.")
+
+
+    // //console.log(playerName + "attacked" + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining.");
+
+    // console.log(enemyName + " attacked " + playerName + " . " + playerName + " now has " + playerHealth + " health remaining. ");
+};
+
+fight();
